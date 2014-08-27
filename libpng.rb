@@ -12,7 +12,7 @@ class Libpng < Formula
     sha1 "2672437209e1207f51135d8e8efa1db5a4852499" => :lion
   end
 
-  keg_only :provided_pre_mountain_lion
+  #keg_only :provided_pre_mountain_lion
 
   option :universal
 
