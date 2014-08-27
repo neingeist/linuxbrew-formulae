@@ -1,8 +1,9 @@
 require 'formula'
 
 class Okapi < Formula
-  head 'git@i14git.anthropomatik.kit.edu:cvhci/okapi.git',
-    :using => :git
+  head 'luffa:git/okapi.git',
+    :using => :git,
+    :branch => "devel"
 
   depends_on "cmake"      => :build
   depends_on "jpeg"
