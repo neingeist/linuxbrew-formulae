@@ -10,7 +10,8 @@ class Okapi < Formula
   depends_on "boost"
   depends_on "libpng"
   depends_on :python
-  depends_on "apr"
+  # FIXME brew does not find apr? why?
+  # depends_on "apr"
 
   depends_on 'ffmpeg' => :optional
 
