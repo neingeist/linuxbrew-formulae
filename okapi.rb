@@ -10,7 +10,7 @@ class Okapi < Formula
   depends_on "boost"
   depends_on "libpng"
   depends_on :python
-  depends_on "apr"
+  #depends_on "apr"
 
   depends_on 'ffmpeg' => :optional
 
@@ -19,6 +19,7 @@ class Okapi < Formula
       -DBoost_NO_SYSTEM_PATHS=ON
       -DOKAPI_WITH_1394=OFF
       -DOKAPI_WITH_EXT_LIBPNG=ON
+      -DOKAPI_WITH_OPENCL=ON
     )
 
     args << "-DCMAKE_BUILD_TYPE=RELEASE"
