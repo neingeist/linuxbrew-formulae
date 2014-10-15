@@ -22,12 +22,22 @@ class Libtiff < Formula
     ENV.universal_binary if build.universal?
     ENV.cxx11 if build.cxx11?
     jpeg = Formula["jpeg"].opt_prefix
+
+    # just as in fedora's spec
+    system "rm", "-f", "libtool.m4"
+    system "libtoolize", "--force", "--copy"
+    system "aclocal", "-I", ".", "-I", "m4"
+    system "automake", "--add-missing", "--copy"
+    system "autoconf"
+    system "autoheader"
+
     system "./configure", "--disable-dependency-tracking",
                           "--prefix=#{prefix}",
                           "--without-x",
                           "--disable-lzma",
                           "--with-jpeg-include-dir=#{jpeg}/include",
-                          "--with-jpeg-lib-dir=#{jpeg}/lib"
+                          "--with-jpeg-lib-dir=#{jpeg}/lib",
+                          "--enable-ld-version-script"
     system "make install"
   end
 end
